@@ -3,17 +3,18 @@
 @section('title', 'Ferramenta Gerador Json')
 
 @section('content')
-    <form class="form-signin">
+    <form class="form-signin container">
         {!! csrf_field() !!}
-        <label for="email" class="sr-only">Email de contato</label>
+        <label for="sellers" lass="sr-only">Dados</label>
+        {{-- <label for="email" class="sr-only">Email de contato</label> --}}
         <input type="text" placeholder="Email de contato" name="email" id="email" class="form-control" required=""
             autofocus=""><br>
 
-        <label for="endereco" class="sr-only">Endereço</label>
+        {{-- <label for="endereco" class="sr-only">Endereço</label> --}}
         <input type="text" placeholder="Endereço" name="endereco" id="endereco" class="form-control" required=""
-            autofocus=""><br>
+            autofocus=""><br><br><br>
 
-        <label for="sellers" lass="sr-only">Sellers</label>
+        <label for="sellers" lass="sr-only">Sellers</label><br>
         {{-- <input type="text" placeholder="sellers" name="sellers" id="sellers" class="form-control" required=""
             autofocus=""><br> --}}
 
@@ -34,21 +35,25 @@
 
                 <input type="text" placeholder="Tipo" class="form-control" name="seller_type" id="seller_type"
                     value="">
-            </div>
+            </div><br>
 
 
-            <button type="button" id="add" onclick="adicionar()" class="btn btn-primary">Add</button>
+            <button type="button" id="add" onclick="adicionar()" class="btn btn-primary" style="">Add</button>
             <br><br>
 
-            <div id="to-do-list">
+            <div id="to-do-list" style="max-height:100px;
+            overflow-y:auto;">
                 <label>My Sellers</label>
                 <ul id="mySeller"></ul>
             </div>
 
-        </div>
+        </div> <br><br>
 
-        <button class="btn btn-lg btn-primary btn-block" onclick="enviar()" type="button">Gerar</button><br>
-        <p class="mt-5 mb-3 text-muted">© 2017-2022</p>
+        <div class="d-flex centralizar " style="justify-content: center">
+            <button class="btn btn-lg btn-primary btn-block d-flex " onclick="enviar()" type="button">Gerar
+                Json</button><br>
+        </div>
+        <p class="mt-5 mb-3 text-muted d-flex" style="justify-content: center">© 2017-2022</p>
     </form>
 @endsection
 
