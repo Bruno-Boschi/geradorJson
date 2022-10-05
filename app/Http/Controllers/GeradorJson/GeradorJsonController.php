@@ -5,6 +5,8 @@ namespace App\Http\Controllers\GeradorJson;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use PhpParser\Node\Expr\Cast\Object_;
+use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
 use stdClass;
 
 class GeradorJsonController extends Controller
@@ -14,23 +16,18 @@ class GeradorJsonController extends Controller
         return view('index');
     }
 
-    public function postJson(Request $request)
+    public function getJson(Request $request)
     {
-        // $json = [
-        //     'contact_email' = $request['email'];
-        //     'contact_address' = $request['endereco'];
-        //     'version' = "1.0";
-        //     'sellers'= $request['sellers'];
-        // ];
-        // header('Content-Type: application/json');
-        // header('Content-Disposition: attachment; filename="materias' . '.json";');
-        \dd($request);
-        $json = new stdClass();
-        $json->contact_email = $request->email;
-        $json->contact_address = $request->endereco;
-        $json->version = "1.0";
-        $json->sellers = $request->sellers;
+        $form = json_decode($request->json);
+        $form->version = "1.0";
 
-        return redirect('gerador-json');;
+        foreach ($form->sellers as $seller) {
+            $seller->seller_id = Uuid::uuid4()->toString();
+        }
+
+        $formJson = json_encode($form);
+
+
+        return $formJson;
     }
 }

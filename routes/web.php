@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'GeradorJson\GeradorJsonController@getIndex')->name('getIndex');
-Route::post('/', 'GeradorJson\GeradorJsonController@postJson')->name('postJson');
+Route::get('/getJson', 'GeradorJson\GeradorJsonController@getJson')->name('getJson');
