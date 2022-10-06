@@ -23,6 +23,7 @@ class GeradorJsonController extends Controller
 
         foreach ($form->sellers as $seller) {
             $seller->seller_id = Uuid::uuid4()->toString();
+            $seller->seller_type = 'PUBLISHER';
         }
 
         $formJson = json_encode($form);
