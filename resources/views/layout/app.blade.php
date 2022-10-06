@@ -11,6 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     {{-- <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ URL('assets/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ URL('assets/estilos.css') }}" rel="stylesheet">
 
