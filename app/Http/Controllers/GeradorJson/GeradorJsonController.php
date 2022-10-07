@@ -19,14 +19,13 @@ class GeradorJsonController extends Controller
     public function getJson(Request $request)
     {
         $form = json_decode($request->json);
-        $form->version = "1.0";
 
         foreach ($form->sellers as $seller) {
             $seller->seller_id = Uuid::uuid4()->toString();
             $seller->seller_type = 'PUBLISHER';
         }
 
-        $formJson = json_encode($form);
+        $formJson = json_encode($form, JSON_UNESCAPED_UNICODE);
 
 
         return $formJson;

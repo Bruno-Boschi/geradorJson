@@ -11,7 +11,7 @@
         {!! csrf_field() !!}
         <label for="sellers" lass="sr-only">Dados</label>
         {{-- <label for="email" class="sr-only">Email de contato</label> --}}
-        <input type="text" placeholder="Email de contato" name="email" id="email" class="form-control" required=""
+        <input type="text" placeholder="Email de contato" name="email" id="email" class="form-control " required=""
             autofocus=""><br>
 
         {{-- <label for="endereco" class="sr-only">Endereço</label> --}}
@@ -86,8 +86,8 @@
 
                 let li = document.createElement('li');
                 // li.innerHTML = name + ' - ' + domain + ' - ' + seller_type;
-                li.innerHTML = name + ' ' +
-                    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i type="button" class="fa fa-trash ml-2 cursor-pointer" onclick="remover(this)"></i>';
+                li.innerHTML = name + ' - ' + domain + ' - ' +
+                    '&nbsp;<i type="button" class="fa fa-trash ml-2 cursor-pointer" onclick="remover(this)"></i>';
                 document.getElementById('mySeller').appendChild(li);
 
                 document.getElementById('name').value = '';
@@ -115,7 +115,8 @@
 
                 let json = {
                     "contact_email": email,
-                    "contact_addres": endereco,
+                    "contact_address": endereco,
+                    "version": "1.0",
                     "sellers": ARRAY
                 }
 
